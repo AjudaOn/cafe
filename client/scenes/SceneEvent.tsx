@@ -228,7 +228,7 @@ export default function SceneEvent({ data }: { data: SceneData["event"] }) {
       </div>
 
       <div className="w-full">
-        <div ref={hairlineRef} className="hairline mb-8 w-full origin-left" />
+        <div ref={hairlineRef} className="hairline mb-4 w-full origin-left" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
           <div ref={metaRef} className="font-sans text-[10px] tracking-[0.3em] uppercase opacity-70">
             {data.eventMeta}
@@ -240,6 +240,7 @@ export default function SceneEvent({ data }: { data: SceneData["event"] }) {
             </button>
           </div>
         </div>
+        <div className="hairline mt-4 w-full" />
       </div>
     </div>
   );
