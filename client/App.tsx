@@ -16,6 +16,7 @@ export default function App() {
   const [isPlaying, setIsPlaying] = useState(true);
   const progressRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
+  const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
   const pageTransitionRef = useRef<HTMLDivElement>(null);
   const isTransitioningRef = useRef(false);
@@ -116,9 +117,7 @@ export default function App() {
       return;
     }
 
-    timelineRef.current = gsap.timeline({
-      onComplete: next,
-    });
+    timelineRef.current = gsap.timeline();
 
     timelineRef.current.fromTo(
       progressRef.current,
@@ -128,6 +127,27 @@ export default function App() {
 
     return () => {
       timelineRef.current?.kill();
+    };
+  }, [currentScene, isPlaying]);
+
+  // Auto-advance fallback (robust on mobile browsers)
+  useEffect(() => {
+    if (autoAdvanceRef.current) {
+      clearTimeout(autoAdvanceRef.current);
+      autoAdvanceRef.current = null;
+    }
+
+    if (!isPlaying) return;
+
+    autoAdvanceRef.current = setTimeout(() => {
+      next();
+    }, DURATION);
+
+    return () => {
+      if (autoAdvanceRef.current) {
+        clearTimeout(autoAdvanceRef.current);
+        autoAdvanceRef.current = null;
+      }
     };
   }, [currentScene, isPlaying, next]);
 
@@ -220,6 +240,25 @@ export default function App() {
               CAFE COM ANER - EDICAO 136 - MAR 2026
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile Floating Controls (always visible) */}
+      <div className="md:hidden fixed left-1/2 -translate-x-1/2 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-[70] pointer-events-auto">
+        <div className="flex gap-2 items-center bg-black/70 border border-white/30 backdrop-blur-sm rounded-full px-3 py-2 shadow-xl">
+          <button onClick={prev} className="text-white hover:opacity-60 transition-opacity" aria-label="Previous scene">
+            <ChevronLeft size={20} strokeWidth={1.5} />
+          </button>
+          <button
+            onClick={togglePlay}
+            className="text-white hover:opacity-60 transition-opacity"
+            aria-label={isPlaying ? "Pause" : "Play"}
+          >
+            {isPlaying ? <Pause size={20} strokeWidth={1.5} /> : <Play size={20} strokeWidth={1.5} />}
+          </button>
+          <button onClick={next} className="text-white hover:opacity-60 transition-opacity" aria-label="Next scene">
+            <ChevronRight size={20} strokeWidth={1.5} />
+          </button>
         </div>
       </div>
     </div>
