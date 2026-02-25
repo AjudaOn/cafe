@@ -160,7 +160,11 @@ export default function App() {
       <div className="absolute inset-0 pointer-events-none z-50 flex flex-col justify-between p-6 md:p-12">
         {/* Top: Marker */}
         <div className="flex justify-end">
-          <div className="font-sans text-[clamp(10px,1.5vw,12px)] tracking-[0.3em] mix-blend-difference text-white">
+          <div
+            className={`font-sans text-[clamp(10px,1.5vw,12px)] tracking-[0.3em] ${
+              isLightScene ? "text-black" : "text-white"
+            }`}
+          >
             0{currentScene + 1} / 0{SCENES.length}
           </div>
         </div>
@@ -178,11 +182,11 @@ export default function App() {
 
           {/* Controls */}
           <div className="flex items-center justify-between">
-            <div className="flex gap-6 items-center">
+            <div className="flex gap-2 items-center bg-black/35 backdrop-blur-sm rounded-full px-3 py-2">
               <button
                 onClick={prev}
                 className={`hover:opacity-50 transition-opacity ${
-                  isLightScene ? "text-black" : "text-white mix-blend-difference"
+                  isLightScene ? "text-black" : "text-white"
                 }`}
                 aria-label="Previous scene"
               >
@@ -191,7 +195,7 @@ export default function App() {
               <button
                 onClick={togglePlay}
                 className={`hover:opacity-50 transition-opacity ${
-                  isLightScene ? "text-black" : "text-white mix-blend-difference"
+                  isLightScene ? "text-black" : "text-white"
                 }`}
                 aria-label={isPlaying ? "Pause" : "Play"}
               >
@@ -200,7 +204,7 @@ export default function App() {
               <button
                 onClick={next}
                 className={`hover:opacity-50 transition-opacity ${
-                  isLightScene ? "text-black" : "text-white mix-blend-difference"
+                  isLightScene ? "text-black" : "text-white"
                 }`}
                 aria-label="Next scene"
               >
@@ -210,7 +214,7 @@ export default function App() {
 
             <div
               className={`hidden md:block font-sans text-[9px] tracking-[0.4em] uppercase opacity-40 ${
-                isLightScene ? "text-black" : "text-white mix-blend-difference"
+                isLightScene ? "text-black" : "text-white"
               }`}
             >
               CAFE COM ANER - EDICAO 136 - MAR 2026
