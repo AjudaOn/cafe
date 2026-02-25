@@ -133,6 +133,7 @@ export default function App() {
 
   const sceneKey = ["event", "guest", "sponsor"][currentScene] as keyof typeof SCENE_DATA;
   const CurrentSceneComponent = SCENES[currentScene];
+  const isLightScene = currentScene === 1;
 
   return (
     <div className="relative h-screen w-screen overflow-hidden bg-black selection:bg-white selection:text-black">
@@ -180,29 +181,39 @@ export default function App() {
             <div className="flex gap-6 items-center">
               <button
                 onClick={prev}
-                className="hover:opacity-50 transition-opacity text-white mix-blend-difference"
+                className={`hover:opacity-50 transition-opacity ${
+                  isLightScene ? "text-black" : "text-white mix-blend-difference"
+                }`}
                 aria-label="Previous scene"
               >
                 <ChevronLeft size={20} strokeWidth={1} />
               </button>
               <button
                 onClick={togglePlay}
-                className="hover:opacity-50 transition-opacity text-white mix-blend-difference"
+                className={`hover:opacity-50 transition-opacity ${
+                  isLightScene ? "text-black" : "text-white mix-blend-difference"
+                }`}
                 aria-label={isPlaying ? "Pause" : "Play"}
               >
                 {isPlaying ? <Pause size={20} strokeWidth={1} /> : <Play size={20} strokeWidth={1} />}
               </button>
               <button
                 onClick={next}
-                className="hover:opacity-50 transition-opacity text-white mix-blend-difference"
+                className={`hover:opacity-50 transition-opacity ${
+                  isLightScene ? "text-black" : "text-white mix-blend-difference"
+                }`}
                 aria-label="Next scene"
               >
                 <ChevronRight size={20} strokeWidth={1} />
               </button>
             </div>
 
-            <div className="hidden md:block font-sans text-[9px] tracking-[0.4em] uppercase opacity-40 text-white mix-blend-difference">
-              Editorial Issue No. 001 - May 2024
+            <div
+              className={`hidden md:block font-sans text-[9px] tracking-[0.4em] uppercase opacity-40 ${
+                isLightScene ? "text-black" : "text-white mix-blend-difference"
+              }`}
+            >
+              CAFE COM ANER - EDICAO 136 - MAR 2026
             </div>
           </div>
         </div>
