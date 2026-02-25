@@ -47,8 +47,8 @@ export default function SceneSponsor({ data }: { data: SceneData["sponsor"] }) {
         "-=0.35"
       );
 
-      // Hold cards briefly, then reverse back to the full composed image.
-      tl.to(".card-back-content", { opacity: 0, y: -8, duration: 0.35, stagger: 0.04, ease: "power2.in" }, "+=1.1");
+      // Hold cards longer for readable text before reversing.
+      tl.to(".card-back-content", { opacity: 0, y: -8, duration: 0.35, stagger: 0.04, ease: "power2.in" }, "+=3.2");
 
       tl.to(
         ".flip-card-inner",
