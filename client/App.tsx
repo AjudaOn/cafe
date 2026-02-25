@@ -81,7 +81,7 @@ export default function App() {
       if (playPromise) {
         playPromise.catch(() => {
           // Browser may block autoplay until first user interaction.
-          setIsPlaying(false);
+          // Keep slideshow running even if audio is blocked.
         });
       }
     } else {
@@ -157,7 +157,7 @@ export default function App() {
       </div>
 
       {/* UI Overlay */}
-      <div className="absolute inset-0 pointer-events-none z-50 flex flex-col justify-between p-6 md:p-12">
+      <div className="absolute inset-0 pointer-events-none z-50 flex flex-col justify-between px-4 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom))] md:p-12">
         {/* Top: Marker */}
         <div className="flex justify-end">
           <div
@@ -170,7 +170,7 @@ export default function App() {
         </div>
 
         {/* Bottom: Progress & Controls */}
-        <div className="flex flex-col gap-8 pointer-events-auto">
+        <div className="flex flex-col gap-6 pointer-events-auto">
           {/* Progress Bar */}
           <div className="w-full h-[1px] bg-white/20 relative overflow-hidden">
             <div
@@ -182,7 +182,7 @@ export default function App() {
 
           {/* Controls */}
           <div className="flex items-center justify-between">
-            <div className="flex gap-2 items-center bg-black/35 backdrop-blur-sm rounded-full px-3 py-2">
+            <div className="flex gap-2 items-center bg-black/55 border border-white/25 backdrop-blur-sm rounded-full px-3 py-2 shadow-lg">
               <button
                 onClick={prev}
                 className={`hover:opacity-50 transition-opacity ${
