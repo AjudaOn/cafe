@@ -3,10 +3,9 @@ import gsap from "gsap";
 import { SCENE_DATA } from "./data";
 import SceneEvent from "./scenes/SceneEvent";
 import SceneGuest from "./scenes/SceneGuest";
-import SceneSponsor from "./scenes/SceneSponsor";
 import { Play, Pause, ChevronLeft, ChevronRight } from "lucide-react";
 
-const SCENES = [SceneEvent, SceneGuest, SceneSponsor];
+const SCENES = [SceneEvent, SceneGuest];
 const DURATION = 15000; // 15 seconds
 const AUDIO_SRC = "/audio/hitslab-elevator-elevator-jazz-lounge-music-412339.mp3";
 const AUDIO_VOLUME = 0.5;
@@ -151,7 +150,7 @@ export default function App() {
     };
   }, [currentScene, isPlaying, next]);
 
-  const sceneKey = ["event", "guest", "sponsor"][currentScene] as keyof typeof SCENE_DATA;
+  const sceneKey = ["event", "guest"][currentScene] as keyof typeof SCENE_DATA;
   const CurrentSceneComponent = SCENES[currentScene];
   const isLightScene = currentScene === 1;
 
