@@ -43,7 +43,7 @@ export const SCENE_DATA: SceneData = {
     ctaLabel: "Em instantes!",
   },
   guest: {
-    guestName: "Eugenio Bucci",
+    guestName: "Eugênio Bucci",
     guestRole: "Jornalista",
     guestCompany: "Professor",
     guestBio:
