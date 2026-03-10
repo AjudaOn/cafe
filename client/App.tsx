@@ -236,7 +236,7 @@ export default function App() {
                 isLightScene ? "text-black" : "text-white"
               }`}
             >
-              CAFE COM ANER - EDICAO 136 - MAR 2026
+              CAFE COM ANER - EDICAO 137 - MAR 2026
             </div>
           </div>
         </div>
