@@ -121,6 +121,7 @@ export default function SceneEvent({ data }: { data: SceneData["event"] }) {
   const topTickerRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLDivElement>(null);
   const themeRef = useRef<HTMLDivElement>(null);
+  const presenterRef = useRef<HTMLDivElement>(null);
   const metaRef = useRef<HTMLDivElement>(null);
   const hairlineRef = useRef<HTMLDivElement>(null);
 
@@ -156,6 +157,13 @@ export default function SceneEvent({ data }: { data: SceneData["event"] }) {
         { opacity: 0, y: 8 },
         { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
         "-=0.45"
+      );
+
+      tl.fromTo(
+        presenterRef.current,
+        { opacity: 0, y: 8 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+        "-=0.3"
       );
 
       tl.fromTo(
@@ -218,12 +226,18 @@ export default function SceneEvent({ data }: { data: SceneData["event"] }) {
         </div>
         <div
           ref={themeRef}
-          className="mt-6 max-w-3xl border border-white/20 bg-white/[0.03] px-4 py-3 md:px-6 md:py-4"
+          className="mt-6 max-w-full border border-white/20 bg-white/[0.03] px-4 py-3 md:px-6 md:py-4"
         >
           <div className="font-sans text-[10px] uppercase tracking-[0.25em] opacity-60 mb-2">Tema de HOJE</div>
-          <p className="text-[clamp(0.95rem,1.4vw,1.2rem)] leading-relaxed text-white/90 font-sans">
+          <p className="whitespace-nowrap text-[clamp(1rem,2.1vw,1.6rem)] leading-relaxed text-white/90 font-sans">
             {data.eventTheme}
           </p>
+        </div>
+        <div
+          ref={presenterRef}
+          className="mt-4 font-sans text-[10px] md:text-[11px] uppercase tracking-[0.24em] md:tracking-[0.28em] text-white/60"
+        >
+          Apresentação: <span className="text-white/85">{data.eventPresenter}</span>
         </div>
       </div>
 

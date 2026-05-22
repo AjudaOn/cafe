@@ -3,6 +3,7 @@
     eventTitle: string;
     eventSubtitle: string;
     eventTheme: string;
+    eventPresenter: string;
     eventPhrases: string[];
     eventMeta: string;
     ctaLabel: string;
@@ -32,47 +33,60 @@ export const SCENE_DATA: SceneData = {
     eventTitle: "ANER",
     eventSubtitle:
       "O ponto de encontro do mercado editorial.",
-    eventTheme: "IA e Jornalismo. Quais os limites?",
+    eventTheme: "IA e a monetização de conteúdo",
+    eventPresenter: "Regina Bucco",
     eventPhrases: [
       "Associação Nacional de Editores de Revistas",
       "comemora 40 anos fortalecendo a imprensa brasileira.",
       "compromisso com a credibilidade e a liberdade de expressão.",
       "inspirando o presente e construindo o futuro do mercado editorial brasileiro",
     ],
-    eventMeta: "10 MARÇO - 15:00 - GOOGLE MEET",
+    eventMeta: "26 DE MAIO - 15:00 - GOOGLE MEET",
     ctaLabel: "Em instantes!",
   },
   guest: {
-    guestName: "Ricardo Gandour",
-    guestRole: "Jornalista",
-    guestCompany: "professor / consultor",
+    guestName: "Pedro Burgos",
+    guestRole: "Professor, jornalista, programador",
+    guestCompany: "Fundador da Co.Inteligência",
     guestBio:
-      "Estrategista, educador e analista de mídia. Com uma carreira marcada pela liderança nas maiores empresas de comunicação do país, é uma das vozes mais qualificadas no debate sobre os desafios do jornalismo e da opinião pública na atualidade.",
+      "Especialista em aliar comunicação e programação. Com passagens por Columbia, CUNY e coordenação de pós-graduação no Insper, lidera iniciativas apoiadas pelo Google News Initiative. Atualmente, atua como consultor, colunista e produtor de conteúdo, traduzindo o impacto da inteligência artificial para o mercado.",
     guestImageUrl:
-      "http://aner.org.br/wp-content/uploads/2026/03/gandour_137.webp?w=1288&fit=crop&q=80&auto=format",
-    guestTags: ["Inovação", "Estratégia", "Jornalismo"],
+      "http://aner.org.br/wp-content/uploads/2026/05/pedro_147.webp?w=1288&fit=crop&q=80&auto=format",
+    guestTags: ["Jornalismo", "Monetização", "Programação"],
   },
   sponsor: {
-    sponsorImpactPhrase: "Onde tem café, tem Cooxupé.",
+    sponsorImpactPhrase: "ANER SUMMIT 2026.",
     sponsorLogoUrl:
-      "https://linktr.ee/og/image/cooperativacooxupe.jpg",
+      "http://aner.org.br/wp-content/uploads/2026/04/AnerSummit2026.jpeg",
     cards: [
       {
-        title: "Cooperativismo Líder",
-        bullets: ["Qualidade reconhecida globalmente", "Tecnologia e rastreabilidade", "Práticas sustentáveis certificadas"],
-        ctaLabel: "Milhares de produtores. Um propósito.",
+        title: "Visão Estratégica",
+        bullets: [
+          "Impactos da IA no jornalismo e mercado",
+          "Transformação de modelos de negócio",
+          "Ética, responsabilidade e inovação"
+        ],
+        ctaLabel: "Lidere as transformações do setor.",
         ctaHref: "#",
       },
       {
-        title: "Excelência Sustentável",
-        bullets: ["Qualidade reconhecida globalmente", "Tecnologia e rastreabilidade", "Práticas sustentáveis certificadas"],
-        ctaLabel: "Qualidade que nasce na origem.",
+        title: "Programação Dinâmica",
+        bullets: [
+          "Painéis com lideranças do mercado",
+          "Talks objetivos de 15 minutos",
+          "Cases reais e insights práticos"
+        ],
+        ctaLabel: "Troca qualificada e networking.",
         ctaHref: "#",
       },
       {
-        title: "Impacto Global",
-        bullets: ["Presença em 5 continentes", "Desenvolvimento regional", "Força econômica para o Brasil"],
-        ctaLabel: "Do Brasil para o mundo.",
+        title: "Informações Gerais",
+        bullets: [
+          "Data: 28/05/2026 às 08h",
+          "Local: ESPM Tech (Vagas limitadas)",
+          "Foco: Mídia e ecossistema de comunicação"
+        ],
+        ctaLabel: "Inscreva-se já, link no chat!",
         ctaHref: "#",
       },
     ],

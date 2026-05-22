@@ -80,7 +80,7 @@ export default function SceneGuest({ data }: { data: SceneData["guest"] }) {
           <div className="flex flex-col gap-2">
             <div ref={metaRef} className="flex flex-col gap-1">
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase opacity-60">
-                Editorial Profile
+                Perfil
               </span>
               <span className="font-sans text-xs tracking-[0.1em] font-medium uppercase">
                 {data.guestRole} / {data.guestCompany}
